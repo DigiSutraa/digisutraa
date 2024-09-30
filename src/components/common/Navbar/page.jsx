@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, px } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa"; // For hamburger and close icons
-import DSlogo from "../../../../public/assets/Swap1.svg";
-
+import Image from "next/image";
+import DSlogo from "../../assets/DS.png"
 const page = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isOpen, setIsOpen] = useState(false); // State to toggle mobile menu
@@ -15,7 +15,7 @@ const page = () => {
       <div className="w-full">
         <div className="w-[90%] flex justify-between items-center mx-auto mt-6">
           <div>
-            <img src={DSlogo} alt="logo" />
+          <Image src={DSlogo} alt="DSlogo" style={{ width: '100px', height: '100px' }} />
           </div>
 
           {/* Desktop Menu */}
