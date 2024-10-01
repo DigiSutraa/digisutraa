@@ -15,7 +15,7 @@ const page = () => {
       <div className="w-full">
         <div className="w-[90%] flex justify-between items-center mx-auto mt-6">
           <div>
-          <Image src={DSlogo} alt="DSlogo" style={{ width: '100px', height: '100px' }} />
+          <Image src={DSlogo} alt="DSlogo"  style={{ width: '100px', height: '100px'  }} />
           </div>
 
           {/* Desktop Menu */}

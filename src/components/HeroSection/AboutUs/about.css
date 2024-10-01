@@ -26,3 +26,25 @@
     animation: fadeIn 2s ease-in forwards;
   }
   
+  /* For fixed icons at the bottom right */
+.fixed-icons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.fixed-icons a {
+  display: inline-block;
+  margin-left: 10px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.fixed-icons a:hover {
+  background-color: #f3f3f3;
+}

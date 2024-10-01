@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navbar from "@/components/common/Navbar/page";
-import dslogo from "../../public/assets/DSlogo.svg";
+// import dslogo from "../../public/assets/DSlogo.svg";
 import AboutUs from "@/components/HeroSection/AboutUs/page";
 import Services from "@/components/HeroSection/Services/page";
 import Client from "@/components/HeroSection/Clients/page";
