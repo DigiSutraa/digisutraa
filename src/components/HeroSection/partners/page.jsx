@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import './clients.css'; // Import the CSS file
+import './partners.css'; // Import the CSS file
 
 const Clients = () => {
   const [isDomestic, setIsDomestic] = useState(true);

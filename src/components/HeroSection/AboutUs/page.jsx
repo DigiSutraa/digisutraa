@@ -8,8 +8,8 @@ const AboutUs = () => {
   return (
     <>
     
-    <div className="min-h-screen bg-gray-100 py-10 px-4 flex flex-col items-center justify-center">
-    <h1 className="text-5xl font-bold text-gray-800 mb-6 animate-slideInLeft">About Us</h1>
+    <div className="min-h-screen bg-blue-900 py-10 px-4 flex flex-col items-center justify-center">
+    <h1 className="text-5xl font-bold text-yellow-300 mb-6 animate-slideInLeft">About Us</h1>
 
     
       {/* About Us Section */}
@@ -17,10 +17,10 @@ const AboutUs = () => {
         {/* Left - Text Section */}
         <div className="flex flex-col justify-center" data-aos="fade-right">
           
-          <p className="text-lg text-gray-600 mb-4 animate-fadeInLeft">
+          <p className="text-lg text-white mb-4 animate-fadeInLeft">
             We are a team of passionate individuals committed to delivering the best solutions to our clients. Our focus is on innovation, quality, and customer satisfaction. Over the years, we have built a strong reputation for delivering exceptional services and products in the tech industry.
           </p>
-          <p className="text-lg text-gray-600 animate-fadeInLeft">
+          <p className="text-lg text-white animate-fadeInLeft">
             With expertise in web development, mobile app development, and digital marketing, we strive to help businesses grow and achieve their goals. Our mission is to create lasting value and help our clients succeed in the competitive digital world.
           </p>
         </div>

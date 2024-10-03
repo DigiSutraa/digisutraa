@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion, px } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa"; // For hamburger and close icons
 import Image from "next/image";
-import DSlogo from "../../assets/DS.png"
+import DSlogo from "../../assets/DStransparent.png"
 const page = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isOpen, setIsOpen] = useState(false); // State to toggle mobile menu
