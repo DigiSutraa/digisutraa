@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import './clients.css'; // Import the CSS file
 
@@ -21,12 +21,21 @@ const Clients = () => {
     <div className="clients-section">
       <h2 className="section-title">Our Clients</h2>
       
-      <button
-        className="toggle-button"
-        onClick={() => setIsDomestic(!isDomestic)}
-      >
-        {isDomestic ? 'View International Clients' : 'View Domestic Clients'}
-      </button>
+      {/* Beautiful Toggle Button */}
+      <div className="toggle-container">
+        <button
+          className={`toggle-option ${isDomestic ? 'active' : ''}`}
+          onClick={() => setIsDomestic(true)}
+        >
+          Domestic Clients
+        </button>
+        <button
+          className={`toggle-option ${!isDomestic ? 'active' : ''}`}
+          onClick={() => setIsDomestic(false)}
+        >
+          International Clients
+        </button>
+      </div>
 
       <div className="clients-grid">
         {isDomestic

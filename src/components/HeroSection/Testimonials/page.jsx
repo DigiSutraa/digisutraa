@@ -1,7 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import './testimonials.css'; // External CSS for animation
 
 const testimonials = [
   {
@@ -10,7 +9,7 @@ const testimonials = [
     position: "CEO, Company A",
     content:
       "This service has been fantastic! I have seen a significant boost in engagement and performance.",
-    avatar: "https://via.placeholder.com/100", // Replace with actual image URL
+    avatar: "https://via.placeholder.com/100",
   },
   {
     id: 2,
@@ -18,7 +17,7 @@ const testimonials = [
     position: "Marketing Manager, Company B",
     content:
       "Amazing team to work with! They transformed our digital presence completely.",
-    avatar: "https://via.placeholder.com/100", // Replace with actual image URL
+    avatar: "https://via.placeholder.com/100",
   },
   {
     id: 3,
@@ -26,69 +25,61 @@ const testimonials = [
     position: "CTO, Company C",
     content:
       "Their expertise in website design and social media handling is unparalleled.",
-    avatar: "https://via.placeholder.com/100", // Replace with actual image URL
+    avatar: "https://via.placeholder.com/100",
+  },
+  {
+    id: 4,
+    name: "Alice Brown",
+    position: "Founder, Startup X",
+    content: "Their creative solutions have taken our branding to the next level.",
+    avatar: "https://via.placeholder.com/100",
+  },
+  {
+    id: 5,
+    name: "Michael Green",
+    position: "Head of Operations, Company D",
+    content:
+      "Highly recommend! Their strategic approach to digital marketing has been impressive.",
+    avatar: "https://via.placeholder.com/100",
+  },
+  {
+    id: 6,
+    name: "Emma White",
+    position: "Co-Founder, Company E",
+    content:
+      "They were instrumental in driving more traffic to our website and increasing sales.",
+    avatar: "https://via.placeholder.com/100",
   },
 ];
 
 const TestimonialCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
   return (
     <div className="w-full flex justify-center items-center py-16 bg-gray-100">
-      <div className="w-[90%] md:w-[60%] mx-auto relative">
-        {/* Carousel Content */}
-        <motion.div
-          key={testimonials[currentIndex].id}
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 100 }}
-          transition={{ duration: 0.5 }}
-          className="bg-white shadow-lg p-8 rounded-lg text-center"
-        >
-          <div className="flex justify-center mb-4">
-            <img
-              src={testimonials[currentIndex].avatar}
-              alt={testimonials[currentIndex].name}
-              className="w-24 h-24 rounded-full object-cover"
-            />
-          </div>
-          <p className="text-lg font-semibold text-gray-800 mb-2">
-            {testimonials[currentIndex].name}
-          </p>
-          <p className="text-sm text-gray-500 mb-4">
-            {testimonials[currentIndex].position}
-          </p>
-          <p className="text-gray-600">{testimonials[currentIndex].content}</p>
-        </motion.div>
-
-        {/* Carousel Controls */}
-        <div className="absolute top-[50%] -translate-y-1/2 left-0">
-          <button
-            onClick={handlePrev}
-            className="p-3 bg-blue-500 text-white rounded-full"
-          >
-            <FaChevronLeft />
-          </button>
-        </div>
-        <div className="absolute top-[50%] -translate-y-1/2 right-0">
-          <button
-            onClick={handleNext}
-            className="p-3 bg-blue-500 text-white rounded-full"
-          >
-            <FaChevronRight />
-          </button>
+      <div className="carousel-container">
+        <div className="carousel-track">
+          {testimonials.concat(testimonials).map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="carousel-item"
+            >
+              <div className="bg-white shadow-lg p-6 rounded-lg text-center mx-2">
+                <div className="flex justify-center mb-4">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
+                </div>
+                <p className="text-lg font-semibold text-gray-800 mb-2">
+                  {testimonial.name}
+                </p>
+                <p className="text-sm text-gray-500 mb-4">
+                  {testimonial.position}
+                </p>
+                <p className="text-gray-600">{testimonial.content}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
