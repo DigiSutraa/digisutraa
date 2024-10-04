@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+// import Image from "next/image";
 import { Star } from "lucide-react";
 
 const testimonials = [
@@ -86,11 +86,11 @@ const TestimonialCarousel = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-5xl font-bold text-slate-800 mb-4">What Our Clients Say</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">Don't just take our word for it - hear from some of our satisfied clients!</p>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">Do not just take our word for it - hear from some of our satisfied clients!</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.id}
               variants={itemVariants}
@@ -102,7 +102,7 @@ const TestimonialCarousel = () => {
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-slate-700 mb-6 italic">"{testimonial.content}"</p>
+              <p className="text-slate-700 mb-6 italic">{testimonial.content}</p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-900 rounded-full flex items-center justify-center text-white text-lg font-semibold">
                   {testimonial.name.charAt(0)}
