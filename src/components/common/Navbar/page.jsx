@@ -1,75 +1,114 @@
 "use client";
 import React, { useState } from "react";
-import { motion, px } from "framer-motion";
-import { FaBars, FaTimes } from "react-icons/fa"; // For hamburger and close icons
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import DSlogo from "../../assets/DS.png"
-const page = () => {
+import DSlogo from "../../assets/DStransparent.png";
+const Page = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [isOpen, setIsOpen] = useState(false); // State to toggle mobile menu
+  const [isOpen, setIsOpen] = useState(false);
 
-  const menuItems = ["Home", "About Us", "Services", "Clients", "Contact"];
+  const menuItems = [
+    { name: "Home", link: "#home" },
+    { name: "About Us", link: "#about" },
+    { name: "Services", link: "#services" },
+    { name: "Clients", link: "#clients" },
+    { name: "Contact", link: "#contact" },
+  ];
 
   return (
-    <>
-      <div className="w-full">
-        <div className="w-[90%] flex justify-between items-center mx-auto mt-6">
-          <div>
-          <Image src={DSlogo} alt="DSlogo"  style={{ width: '100px', height: '100px'  }} />
-          </div>
+    <div className="w-full bg-white border-b border-gray-200 shadow-sm" id="home">
+      <div className="w-[90%] flex justify-between items-center mx-auto h-20">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            src={DSlogo}
+            alt="Logo"
+            className="h-[200px] w-[200px] object-contain "
+          />
+        </motion.div>
 
-          {/* Desktop Menu */}
-          <nav className="hidden sm:flex">
-            <ul className="flex space-x-8">
+        {/* Desktop Menu */}
+        <nav className="hidden lg:flex">
+          <ul className="flex space-x-8">
+            {menuItems.map((item, index) => (
+              <motion.li
+                key={index}
+                onHoverStart={() => setHoveredIndex(index)}
+                onHoverEnd={() => setHoveredIndex(null)}
+                className="relative text-sm font-medium text-gray-700 cursor-pointer"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <a href={item.link} className="transition-colors duration-300 hover:text-gray-900">
+                  {item.name}
+                </a>
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: hoveredIndex === index ? 1 : 0 }}
+                  className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-900 origin-left"
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Mobile Menu Toggle Button */}
+        <motion.div 
+          className="lg:hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-700 p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </motion.div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden overflow-hidden bg-white border-t border-gray-200"
+          >
+            <ul className="flex flex-col items-center space-y-4 py-6">
               {menuItems.map((item, index) => (
                 <motion.li
                   key={index}
-                  onHoverStart={() => setHoveredIndex(index)}
-                  onHoverEnd={() => setHoveredIndex(null)}
-                  className="relative text-lg font-semibold text-gray-800 cursor-pointer hover:text-blue-500"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="w-full text-center"
                 >
-                  {item}
-                  {/* Underline animation */}
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: hoveredIndex === index ? "100%" : "0%" }}
-                    className="absolute left-0 bottom-0 h-[2px] bg-blue-500"
-                    transition={{ duration: 0.3 }}
-                  />
+                  <a
+                    href={item.link}
+                    onClick={() => setIsOpen(false)}
+                    className="text-sm font-medium text-gray-700 hover:text-gray-900 block py-2 px-4 transition-colors duration-300"
+                  >
+                    {item.name}
+                  </a>
                 </motion.li>
               ))}
             </ul>
-          </nav>
-
-          {/* Mobile Menu Toggle Button */}
-          <div className="sm:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <motion.nav
-          initial={{ height: 0 }}
-          animate={{ height: isOpen ? "auto" : 0 }}
-          transition={{ duration: 0.5 }}
-          className={`sm:hidden overflow-hidden`}
-        >
-          <ul className="flex flex-col items-center space-y-4 mt-4">
-            {menuItems.map((item, index) => (
-              <li
-                key={index}
-                className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-blue-500"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </motion.nav>
-      </div>
-    </>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
-export default page;
+export default Page;

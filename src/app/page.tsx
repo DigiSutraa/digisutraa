@@ -1,9 +1,9 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Navbar from "@/components/common/Navbar/page";
 // import dslogo from "../../public/assets/DSlogo.svg";
 import AboutUs from "@/components/HeroSection/AboutUs/page";
 import Services from "@/components/HeroSection/Services/page";
-import Client from "@/components/HeroSection/Clients/page";
+import Client from "@/components/HeroSection/partners/page";
 import Testimonials from "@/components/HeroSection/Testimonials/page";
 import Contactus from "@/components/HeroSection/Contactus/page";
 import Footer from "@/components/common/Footer/page";

@@ -25,7 +25,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div id="contact" className="flex justify-center items-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] md:w-[50%]">
         <h2 className="text-3xl font-bold mb-6 text-center">Contact Us</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
