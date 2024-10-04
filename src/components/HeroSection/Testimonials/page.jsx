@@ -66,7 +66,7 @@ const TestimonialCard = ({ testimonial }) => (
       ))}
     </div>
     <p className="text-gray-700 mb-6 text-lg leading-relaxed italic relative z-10">
-      "{testimonial.content}"
+      {testimonial.content}
     </p>
     <div className="flex items-center">
       <div className="w-14 h-14 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex items-center justify-center text-white text-xl font-semibold shadow-lg">
@@ -125,7 +125,7 @@ const TestimonialCarousel = () => {
             What Our Clients <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Say About Us</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it — hear from some of our satisfied clients!
+            Do not just take our word for it — hear from some of our satisfied clients!
           </p>
         </motion.div>
 

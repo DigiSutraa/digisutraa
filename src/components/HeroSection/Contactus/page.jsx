@@ -59,7 +59,7 @@ const ContactUs = () => {
         <h2 className="text-4xl font-bold mb-2 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Get in Touch
         </h2>
-        <p className="text-gray-600 text-center mb-8">We'd love to hear from you. Send us a message!</p>
+        <p className="text-gray-600 text-center mb-8">We had love to hear from you. Send us a message!</p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Input */}
