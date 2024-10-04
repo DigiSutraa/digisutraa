@@ -30,19 +30,19 @@ const Services = () => {
 
   const services = [
     {
-      title: "Marketing",
+      title: "SOCIAL MEDIA MARKETING",
       description: "We offer top-notch marketing services to help businesses reach their target audience and grow their brand with creative strategies.",
-      icon: "📈"
+      // icon: "📈"
     },
     {
-      title: "Social Media Handling",
+      title: "BRANDING & ADVERTISEMENT",
       description: "Let us manage your social media platforms to engage with your audience, build brand loyalty, and increase your online presence.",
-      icon: "💬"
+      // icon: "💬"
     },
     {
-      title: "Website Designing",
+      title: "REELS & CONTENT CREATION",
       description: "Our team designs stunning websites tailored to your business needs, ensuring they are responsive, user-friendly, and visually appealing.",
-      icon: "🎨"
+      // icon: "🎨"
     }
   ];
 

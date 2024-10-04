@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, User, MessageSquare, Send } from "lucide-react";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -24,15 +26,49 @@ const ContactUs = () => {
     window.open(gmailUrl, '_blank');
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const inputVariants = {
+    focused: { scale: 0.98 }
+  };
+
   return (
-    <div id="contact" className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] md:w-[50%]">
-        <h2 className="text-3xl font-bold mb-6 text-center">Contact Us</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div id="contact" className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-50 to-white py-20 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply blur-3xl opacity-30 translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply blur-3xl opacity-30 -translate-x-1/2 translate-y-1/2"></div>
+      </div>
+
+      <motion.div 
+        className="bg-white backdrop-blur-sm bg-opacity-70 p-10 rounded-2xl shadow-2xl w-[90%] max-w-2xl relative z-10"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <h2 className="text-4xl font-bold mb-2 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Get in Touch
+        </h2>
+        <p className="text-gray-600 text-center mb-8">We'd love to hear from you. Send us a message!</p>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Input */}
-          <div>
-            <label className="block text-lg font-semibold mb-2" htmlFor="name">
-              Name
+          <motion.div whileFocus="focused" variants={inputVariants}>
+            <label className="block text-lg font-medium mb-2 text-gray-700" htmlFor="name">
+              <div className="flex items-center">
+                <User className="w-5 h-5 mr-2 text-blue-500" />
+                Name
+              </div>
             </label>
             <input
               type="text"
@@ -41,14 +77,18 @@ const ContactUs = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 bg-white bg-opacity-50 backdrop-blur-sm"
+              placeholder="John Doe"
             />
-          </div>
+          </motion.div>
 
           {/* Email Input */}
-          <div>
-            <label className="block text-lg font-semibold mb-2" htmlFor="email">
-              Email
+          <motion.div whileFocus="focused" variants={inputVariants}>
+            <label className="block text-lg font-medium mb-2 text-gray-700" htmlFor="email">
+              <div className="flex items-center">
+                <Mail className="w-5 h-5 mr-2 text-blue-500" />
+                Email
+              </div>
             </label>
             <input
               type="email"
@@ -57,17 +97,18 @@ const ContactUs = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 bg-white bg-opacity-50 backdrop-blur-sm"
+              placeholder="john@example.com"
             />
-          </div>
+          </motion.div>
 
           {/* Message Input */}
-          <div>
-            <label
-              className="block text-lg font-semibold mb-2"
-              htmlFor="message"
-            >
-              Message
+          <motion.div whileFocus="focused" variants={inputVariants}>
+            <label className="block text-lg font-medium mb-2 text-gray-700" htmlFor="message">
+              <div className="flex items-center">
+                <MessageSquare className="w-5 h-5 mr-2 text-blue-500" />
+                Message
+              </div>
             </label>
             <textarea
               id="message"
@@ -75,21 +116,27 @@ const ContactUs = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
+              className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 h-40 bg-white bg-opacity-50 backdrop-blur-sm resize-none"
+              placeholder="Your message here..."
             />
-          </div>
+          </motion.div>
 
           {/* Submit Button */}
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
             <button
               type="submit"
-              className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-200"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition duration-300 flex items-center justify-center space-x-2 w-full md:w-auto md:mx-auto"
             >
-              Submit
+              <span>Send Message</span>
+              <Send className="w-5 h-5" />
             </button>
-          </div>
+          </motion.div>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };
