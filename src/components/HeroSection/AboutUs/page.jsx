@@ -1,55 +1,105 @@
+"use client";
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FaWhatsapp, FaPhone } from 'react-icons/fa';
-import aboutus1 from "@/components/assets/aboutus1.webp";
-import './about.css';
 import Image from 'next/image';
+import aboutus1 from "@/components/assets/aboutus1.webp";
 
 const AboutUs = () => {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    <>
-    
-    <div className="min-h-screen bg-blue-900 py-10 px-4 flex flex-col items-center justify-center">
-    <h1 className="text-5xl font-bold text-yellow-300 mb-6 animate-slideInLeft">About Us</h1>
+    <div className="min-h-screen bg-white py-24 px-4 relative">
+      {/* Subtle background accent */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white" />
+      
+      <div className="max-w-6xl mx-auto relative">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+        >
+          <motion.div variants={fadeIn} className="space-y-8">
+            <h2 className="text-4xl font-light text-gray-900 tracking-tight">
+              About <span className="font-semibold">Us</span>
+            </h2>
+            
+            <div className="space-y-6">
+              <p className="text-lg text-gray-600 leading-relaxed">
+                We are a team of passionate individuals committed to delivering the best solutions to our clients. Our focus is on innovation, quality, and customer satisfaction.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                With expertise in web development, mobile app development, and digital marketing, we strive to help businesses grow and achieve their goals in the competitive digital world.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 0 }}
+                className="px-6 py-3 bg-black text-white text-sm uppercase tracking-wider hover:bg-gray-900 transition-colors duration-300"
+              >
+                Learn More
+              </motion.button>
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 0 }}
+                className="px-6 py-3 border border-black text-black text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300"
+              >
+                Our Services
+              </motion.button>
+            </div>
+          </motion.div>
 
-    
-      {/* About Us Section */}
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        {/* Left - Text Section */}
-        <div className="flex flex-col justify-center" data-aos="fade-right">
-          
-          <p className="text-lg text-white mb-4 animate-fadeInLeft">
-            We are a team of passionate individuals committed to delivering the best solutions to our clients. Our focus is on innovation, quality, and customer satisfaction. Over the years, we have built a strong reputation for delivering exceptional services and products in the tech industry.
-          </p>
-          <p className="text-lg text-white animate-fadeInLeft">
-            With expertise in web development, mobile app development, and digital marketing, we strive to help businesses grow and achieve their goals. Our mission is to create lasting value and help our clients succeed in the competitive digital world.
-          </p>
-        </div>
-
-        {/* Right - Image Section */}
-        <div className="flex justify-center md:justify-end" data-aos="fade-left">
-          <Image src={aboutus1} alt="about us" className="w-full h-auto rounded-lg shadow-lg animate-slideInRight" />
-        </div>
+          <motion.div
+            variants={fadeIn}
+            className="relative aspect-square"
+          >
+            <div className="absolute inset-0 bg-gray-100" />
+            <motion.div
+              className="relative h-full transform"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image 
+                src={aboutus1} 
+                alt="About us" 
+                className="object-cover"
+                fill
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* Contact Icons (Fixed at the bottom of the page and scrollable) */}
-      <div className="fixed bottom-5 left-5 right-5 flex justify-between items-center">
-        {/* Call Icon */}
-        <a href="tel:9999079568" className="rounded-full bg-orange-500 p-3 shadow-md hover:bg-orange-600 transition-transform transform hover:scale-110">
-          <FaPhone size={24} className="text-white" />
-        </a>
-
-        {/* WhatsApp Icon */}
-        <a
+      {/* Minimalist Contact Icons */}
+      <div className="fixed bottom-8 right-8 flex flex-col space-y-4 z-50">
+        <motion.a
+          href="tel:9999079568"
+          whileHover={{ x: -4 }}
+          className="bg-black text-white p-4 shadow-sm hover:shadow-md transition-shadow"
+        >
+          <FaPhone size={20} />
+        </motion.a>
+        <motion.a
           href="https://wa.me/9999079568"
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-green-500 p-3 shadow-md hover:bg-green-600 transition-transform transform hover:scale-110"
+          whileHover={{ x: -4 }}
+          className="bg-black text-white p-4 shadow-sm hover:shadow-md transition-shadow"
         >
-          <FaWhatsapp size={24} className="text-white" />
-        </a>
+          <FaWhatsapp size={20} />
+        </motion.a>
       </div>
     </div>
-    </>
   );
 };
 
