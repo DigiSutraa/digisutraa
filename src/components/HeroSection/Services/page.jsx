@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import aboutus1 from "@/components/assets/aboutus1.webp";
+// import Image from 'next/image';
+// import aboutus1 from "@/components/assets/aboutus1.webp";
 
 const Services = () => {
   const colors = [
