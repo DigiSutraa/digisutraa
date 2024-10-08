@@ -33,7 +33,7 @@ const Page = () => {
           <Image
             src={DSlogo}
             alt="Logo"
-            className="h-[200px] w-[200px] object-contain"
+            className="h-[300px] w-[300px] object-contain"
           />
         </motion.div>
 
