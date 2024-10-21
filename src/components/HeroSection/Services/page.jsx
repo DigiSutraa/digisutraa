@@ -1,8 +1,9 @@
 "use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
-// import Image from 'next/image';
-// import aboutus1 from "@/components/assets/aboutus1.webp";
+import Image from 'next/image';
+import pngwing from "@/components/assets/pngwing.png";
 
 const Services = () => {
   const colors = [
@@ -124,14 +125,13 @@ const Services = () => {
               <div className="backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-purple-500/10">
                 <div className={`relative h-48 bg-gradient-to-br ${service.gradient} overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <span className="text-2xl text-white font-semibold">{index + 1}</span>
-                    </motion.div>
-                  </div>
+                  <Image
+                    src={pngwing}
+                    alt="Background Pattern"
+                    layout="fill"
+                    objectFit="cover"
+                    className="opacity-30"
+                  />
                 </div>
                 <div className="p-8 bg-gray-900/50">
                   <h3 className="text-xl font-semibold text-white mb-4">{service.title}</h3>
