@@ -150,7 +150,7 @@ const Clients = () => {
             exit="hidden"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {(isDomestic ? domesticClients : internationalClients).map((client) => (
+            {(isDomestic ? domesticClients : internationalClients).map((client ) => (
               <motion.div
                 key={client.name}
                 variants={itemVariants}
@@ -163,7 +163,7 @@ const Clients = () => {
                 />
                 <div className="backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-500/10">
                   <div className="p-8 relative">
-                    <motion.div
+                    <motion.div 
                       className="absolute top-0 right-0 w-32 h-32 opacity-10"
                       style={{ background: client.color }}
                       animate={{

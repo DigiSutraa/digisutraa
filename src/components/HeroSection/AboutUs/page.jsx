@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import Image from 'next/image';
-import aboutus1 from "@/components/assets/aboutus1.webp";
+import aboutus1 from "@/components/assets/aboutuspic.jpg";
 
 const AboutUs = () => {
   const colors = [
@@ -125,86 +125,81 @@ const AboutUs = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       />
-      
       <div className="max-w-6xl mx-auto relative">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
+    className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+  >
+    <motion.div variants={staggerChildren} className="space-y-10">
+      <motion.div 
+        variants={fadeInLeft}
+        className="inline-block bg-white/50 p-2 rounded-lg"
+      >
+        <h2 className="text-5xl font-light text-gray-900 tracking-tight">
+          About <span className="font-semibold">Us</span>
+        </h2>
+      </motion.div>
+      
+      <motion.div variants={staggerChildren} className="space-y-6">
+        <motion.p 
+          variants={fadeInLeft} 
+          className="text-lg text-gray-800 leading-relaxed bg-white/50 p-4 rounded-lg"
         >
-          <motion.div variants={staggerChildren} className="space-y-10">
-            <motion.div 
-              variants={fadeInLeft}
-              className="inline-block bg-white/50 backdrop-blur-sm p-2 rounded-lg"
-            >
-              <h2 className="text-5xl font-light text-gray-900 tracking-tight">
-                About <span className="font-semibold">Us</span>
-              </h2>
-            </motion.div>
-            
-            <motion.div variants={staggerChildren} className="space-y-6">
-              <motion.p 
-                variants={fadeInLeft} 
-                className="text-lg text-gray-800 leading-relaxed bg-white/50 backdrop-blur-sm p-4 rounded-lg"
-              >
-                We are a team of passionate individuals committed to delivering the best solutions to our clients. Our focus is on innovation, quality, and customer satisfaction.
-              </motion.p>
-              <motion.p 
-                variants={fadeInLeft} 
-                className="text-lg text-gray-800 leading-relaxed bg-white/50 backdrop-blur-sm p-4 rounded-lg"
-              >
-                With expertise in web development, mobile app development, and digital marketing, we strive to help businesses grow and achieve their goals in the competitive digital world.
-              </motion.p>
-            </motion.div>
-            
-            <motion.div 
-              variants={fadeInLeft}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "#333" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-black text-white text-sm uppercase tracking-wider transition-colors duration-300 rounded-lg shadow-lg"
-              >
-                Learn More
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-black text-black text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300 rounded-lg"
-              >
-                Our Services
-              </motion.button>
-            </motion.div>
-          </motion.div>
+          We are a team of passionate individuals committed to delivering the best solutions to our clients. Our focus is on innovation, quality, and customer satisfaction.
+        </motion.p>
+        <motion.p 
+          variants={fadeInLeft} 
+          className="text-lg text-gray-800 leading-relaxed bg-white/50 p-4 rounded-lg"
+        >
+          With expertise in web development, mobile app development, and digital marketing, we strive to help businesses grow and achieve their goals in the competitive digital world.
+        </motion.p>
+      </motion.div>
+      
+      <motion.div 
+        variants={fadeInLeft}
+        className="flex flex-col sm:flex-row gap-4 pt-4"
+      >
+        <motion.button
+          whileHover={{ scale: 1.05, backgroundColor: "#333" }}
+          whileTap={{ scale: 0.95 }}
+          className="px-8 py-4 bg-black text-white text-sm uppercase tracking-wider transition-colors duration-300 rounded-lg shadow-lg"
+        >
+          Learn More
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-8 py-4 border-2 border-black text-black text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300 rounded-lg"
+        >
+          Our Services
+        </motion.button>
+      </motion.div>
+    </motion.div>
 
-          <motion.div
-            variants={fadeInRight}
-            className="relative aspect-square"
-          >
-            <motion.div
-              className="absolute inset-0 bg-white/10 backdrop-blur-sm z-10 rounded-2xl"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            />
-            <motion.div
-              className="relative h-full transform group rounded-2xl overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Image 
-                src={aboutus1} 
-                alt="About us" 
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                fill
-                priority
-              />
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </div>
+    <motion.div
+      variants={fadeInRight}
+      className="relative aspect-square"
+    >
+      {/* Removed the backdrop-blur-sm */}
+      <motion.div
+        className="relative h-full transform group rounded-2xl overflow-hidden"
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <Image 
+          src={aboutus1} 
+          alt="About us" 
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          priority
+        />
+      </motion.div>
+    </motion.div>
+  </motion.div>
+</div>
+
 
       {/* Floating Contact Icons */}
       <div className="fixed bottom-8 right-8 flex flex-col space-y-4 z-50">
