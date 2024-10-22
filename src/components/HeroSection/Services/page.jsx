@@ -4,6 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import pngwing from "@/components/assets/pngwing.png";
+import pngwing2 from "@/components/assets/pngwing2.png";
+import picwing3 from "@/components/assets/pngwing3.png";
 
 const Services = () => {
   const colors = [
@@ -40,19 +42,22 @@ const Services = () => {
       title: "SOCIAL MEDIA MARKETING",
       description: "We offer top-notch marketing services to help businesses reach their target audience and grow their brand with creative strategies.",
       color: colors[0],
-      gradient: "from-purple-900 to-purple-600"
+      gradient: "from-purple-900 to-purple-600",
+      backgroundImage: pngwing
     },
     {
       title: "BRANDING & ADVERTISEMENT",
       description: "Let us manage your social media platforms to engage with your audience, build brand loyalty, and increase your online presence.",
       color: colors[1],
-      gradient: "from-red-600 to-orange-400"
+      gradient: "from-red-600 to-orange-400",
+      backgroundImage: pngwing2
     },
     {
       title: "REELS & CONTENT CREATION",
       description: "Our team designs stunning content tailored to your business needs, ensuring they are engaging, trend-setting, and visually appealing.",
       color: colors[2],
-      gradient: "from-green-600 to-emerald-400"
+      gradient: "from-green-600 to-emerald-400",
+      backgroundImage: picwing3
     }
   ];
 
@@ -126,7 +131,7 @@ const Services = () => {
                 <div className={`relative h-48 bg-gradient-to-br ${service.gradient} overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
                   <Image
-                    src={pngwing}
+                    src={service.backgroundImage}
                     alt="Background Pattern"
                     layout="fill"
                     objectFit="cover"
