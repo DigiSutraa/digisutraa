@@ -5,6 +5,7 @@ import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import Image from 'next/image';
 import aboutus1 from "@/components/assets/aboutuspic.jpg";
 
+
 const AboutUs = () => {
   const colors = [
     '#FFA07A', // Light Salmon
